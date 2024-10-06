@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="string">Enther the text: </label>
+    <input type="text" id="string" placeholder="Enter here">
+    <button onclick="checkVov()">Submit</button>
+    <p id="result"></p>
+    <script>
+        function checkVov(){
+            let line = document.getElementById('string').value.toLowerCase()
+            let res = countVowCon(line)
+            document.getElementById('result').innerHTML = `Number of vowels: ${res.vowels}, Number of consonants: ${res.consonants}`
+        }
+        function countVowCon(str){
+            const vowels = ['a','e','i','o','u']
+            let vowelCount = 0
+            let consonantCount = 0
+            for (let char of str){
+                if (/[a-z]/.test(char)){
+                    if (vowels.includes(char)){
+                        vowelCount ++
+                    }
+                    else{
+                        consonantCount ++
+                    }
+                }
+            }
+            return {vowels:vowelCount, consonants:consonantCount}
+        }
+     
+    </script>
+</body>
+</html>
